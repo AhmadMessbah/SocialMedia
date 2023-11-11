@@ -1,18 +1,31 @@
 from tools.database import Database
-
+from model.entity import  post
 
 class PostDa(Database):
     def save(self, post):
-        pass
+        self.transaction("INSERT INTO post_tbl (profile,text,image) values (%s,%s,%s,%s)",
+                          [post.profile,post.text,post.image])
+        return post
 
     def edit(self, post):
-        pass
+        self.transaction("UPDATE post_tbl set text=%s,image=%s  where  code=%s"
+                         ,[post.text,post.image])
+        return post
+
 
     def remove(self, code):
-        pass
+        self.transaction("DELETE FROM post_tbl where code=%s",
+                         [code])
+        return code
 
     def find_all(self):
-        pass
+        return self.report("SELECT * FROM post_tbl")
+
 
     def find_by_code(self, code):
-        pass
+        return self.report("SELECT * FROM post_tbl where code=%s",[code])
+
+    def find_by_profile(self,profile):
+        return self.report("SELECT * FROM post_tbl where profile=%s",[post.profile])
+
+
