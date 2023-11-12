@@ -13,11 +13,7 @@ class Profile:
         self.email= email
         self.image= image
         self.status= status
-    def __repr__(self):
-        return str(self.__dict__)
 
-    def to_tuple(self):
-        return tuple(self.__dict__.values())
 
     @property
     def code(self):
@@ -48,7 +44,7 @@ class Profile:
         if isinstance(family, str) and re.match("^[a-zA-Z\s]{2,30}$", family):
             self._family = family
         else:
-            raise ValueError("invalid name")
+            raise ValueError("invalid family")
 
     @property
     def username(self):
@@ -62,17 +58,6 @@ class Profile:
             raise ValueError("invalid username")
 
     @property
-    def password(self):
-        return self._password
-
-    @password.setter
-    def password(self, password):
-        if isinstance(password, str) and re.match("^[a-zA-Z\s]{2,30}$", password):
-            self._password = password
-        else:
-            raise ValueError("invalid password")
-
-    @property
     def email(self):
         return self._email
 
@@ -82,5 +67,13 @@ class Profile:
             self._email = email
         else:
             raise ValueError("invalid email")
+    def __repr__(self):
+        return str(self.__dict__)
+
+    def to_tuple(self):
+        return tuple(self.__dict__.values())
+
+#a =Profile(1,'behnam','masoumi','behnamlive','behnam12','behnamlive@live.com','asasd',1)
+#print(Profile.to_tuple(a))
 
 
