@@ -1,7 +1,7 @@
 from model.da.profile_da import ProfileDa
 from model.entity.post import Post
 from model.entity.profile import Profile
-
+from model.da.post_da import PostDa
 
 class PostController:
     @classmethod
@@ -14,3 +14,43 @@ class PostController:
             return post
         except Exception as e:
             return  False, str(e)
+    @classmethod
+    def edit(self,profile_id, image, text):
+        try:
+            da = ProfileDa()
+            profile = da.find_by_id(Profile , profile_id)
+            post = Post(profile, text, image)
+            da.edit(post)
+            return post
+        except Exception as e:
+            return  False, str(e)
+
+        @classmethod
+        def remove(self, id):
+            try:
+                da = PostDa()
+                post = da.find_by_id(Post, id)
+                if post:
+                    da.remove(post)
+                    return post
+            except Exception as e:
+                return False, str(e)
+        @classmethod
+        def find_by_time(self, datetime1, datetime2):
+            try:
+                da = PostDa()
+                post = da.find_by_time(Post, datetime1, datetime2)
+                return post
+            except Exception as e:
+                return False, str(e)
+
+        @classmethod
+        def find_by_profile_id(self, profile_id):
+           try:
+            da = ProfileDa()
+            profile = da.find_by_id(Profile, profile_id)
+            da = PostDa()
+            post = da.find_by_time(Post, profile)
+              return post
+            except Exception as e:
+              return False, str(e)

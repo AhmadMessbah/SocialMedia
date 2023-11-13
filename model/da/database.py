@@ -8,7 +8,6 @@ from model.entity.base import Base
 
 from sqlalchemy.orm import sessionmaker
 
-from model.entity.customer import Customer
 
 import sqlalchemy_utils
 from sqlalchemy_utils import database_exists, create_database
