@@ -6,7 +6,7 @@ from model.entity.base import Base
 from tools.validator import Validator
 
 
-class Profile(Base):
+class Like(Base):
     __tablename__ = "like_tbl"
 
     def __init__(self, code, post, profile):
