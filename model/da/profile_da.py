@@ -35,6 +35,8 @@ class ProfileDa(Database):
         data = (family,)
         return self.fetch_all_results(sql_command, data)
 
-a = ProfileDa()
-b = Profile(1,'behnam','mas','reza','behna','behnamlive@live.com','behhh',1)
-a.save(b)
+#a = ProfileDa()
+#b = Profile(2,'mamad','masumi','reza','behna','behnamlive@live.com','behhh',1)
+#a.save(b)
+#a.edit(b)
+#a.remove(2)
