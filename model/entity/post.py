@@ -1,5 +1,5 @@
 import re
-from sqlalchemy import Integer, String, Boolean, Date, ForeignKey
+from sqlalchemy import Integer, String, Boolean, Date, ForeignKey, Column , DateTime
 from sqlalchemy.orm import relationship
 
 from model.entity.base import Base
@@ -9,8 +9,14 @@ from tools.validator import Validator
 class Post(Base):
     __tablename__ = "post_tbl"
 
-    def __init__(self, code, profile, text, image, date_time):
-        self.code = code
+    id = Column(Integer, primary_key=True)
+    profile_id = Column(Integer, ForeignKey('profile.id'))
+    image = Column(String(300))
+    text = Column(String(300))
+    date_time = Column(DateTime)
+    profile = relationship("Profile")
+
+    def __init__(self, profile, text, image, date_time):
         self.profile = profile
         self.text = text
         self.image = image
@@ -20,4 +26,4 @@ class Post(Base):
         return str(self.__dict__)
 
     def convert_to_tuple(self):
-        return self.code, self.name, self.family
+        return self.id, self.name, self.family
