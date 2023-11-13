@@ -9,8 +9,8 @@ from tools.validator import Validator
 class Post(Base):
     __tablename__ = "post_tbl"
 
-    def __init__(self, code, profile, text, image, date_time):
-        self.code = code
+    def __init__(self, id, profile, text, image, date_time):
+        self.id = id
         self.profile = profile
         self.text = text
         self.image = image
@@ -20,4 +20,4 @@ class Post(Base):
         return str(self.__dict__)
 
     def convert_to_tuple(self):
-        return self.code, self.name, self.family
+        return self.id, self.name, self.family

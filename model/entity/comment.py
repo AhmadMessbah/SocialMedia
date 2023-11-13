@@ -9,7 +9,7 @@ from tools.validator import Validator
 class Comment(Base):
     __tablename__ = "comment_tbl"
 
-    def __init__(self, code, post, profile, text, date_time):
+    def __init__(self, id, post, profile, text, date_time):
         pass
 
     def __repr__(self):

@@ -9,8 +9,8 @@ from tools.validator import Validator
 class Profile(Base):
     __tablename__ = "profile_tbl"
 
-    def __init__(self, code, name, family, username, password, email, image, status):
-        self.code = code
+    def __init__(self, id, name, family, username, password, email, image, status):
+        self.id = id
         self.name = name
         self.family = family
         self.username = username
@@ -20,13 +20,13 @@ class Profile(Base):
         self.status = status
 
     @property
-    def code(self):
-        return self._code
+    def id(self):
+        return self._id
 
-    @code.setter
-    def code(self, code):
-        Validator.is_number(code, True, "Invalid Code")
-        self._code = code
+    @id.setter
+    def id(self, id):
+        Validator.is_number(id, True, "Invalid Code")
+        self._id = id
 
     @property
     def name(self):
