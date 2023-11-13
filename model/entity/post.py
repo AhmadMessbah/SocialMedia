@@ -1,9 +1,15 @@
+
 class Post:
-    def __init__(self, code, profile, text, image, date_time):
-        pass
+    def __init__(self,code,profile,text,image,date_time):
+        self.code = code
+        self.profile = profile
+        self.text = text
+        self.image = image
+        self.date_time = date_time
 
     def __repr__(self):
         return str(self.__dict__)
 
-    def to_tuple(self):
-        return tuple(self.__dict__.values())
+    def convert_to_tuple(self):
+        return self.code ,self.name ,self.family
+
