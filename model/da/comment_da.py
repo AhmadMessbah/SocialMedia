@@ -1,18 +1,6 @@
-from tools.database import Database
+
+from model.da.database import DatabaseManager
 
 
-class CommentDa(Database):
-    def save(self, comment):
-        pass
-
-    def edit(self, comment):
-        pass
-
-    def remove(self, code):
-        pass
-
-    def find_all(self):
-        pass
-
-    def find_by_code(self, code):
-        pass
+class CommentDa(DatabaseManager):
+    pass
