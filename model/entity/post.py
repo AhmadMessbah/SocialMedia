@@ -1,6 +1,6 @@
 
 class Post:
-    def __init__(self,code,profile,text,image,date_time):
+    def __init__(self, code, profile, text, image, date_time):
         self.code = code
         self.profile = profile
         self.text = text
@@ -11,5 +11,5 @@ class Post:
         return str(self.__dict__)
 
     def convert_to_tuple(self):
-        return self.code ,self.name ,self.family
+        return self.code, self.name, self.family
 
