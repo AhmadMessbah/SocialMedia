@@ -6,9 +6,9 @@ from model.entity.profile import Profile
 
 class PersonController:
     @classmethod
-    def save(cls, name, family):
+    def save(cls, name, family,username,password,email,image,status):
         try:
-            profile = Profile(None, name, family)
+            profile = Profile(None,name,family,username,password,email,image,status)
             da = ProfileDa()
             return True, da.save(profile)
         except Exception as e:

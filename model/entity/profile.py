@@ -1,5 +1,5 @@
 import re
-from sqlalchemy import Integer, String, Boolean, Date, ForeignKey
+from sqlalchemy import Integer, String, Boolean, Date, ForeignKey, Column
 from sqlalchemy.orm import relationship
 
 from model.entity.base import Base
@@ -8,6 +8,15 @@ from tools.validator import Validator
 
 class Profile(Base):
     __tablename__ = "profile_tbl"
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(30))
+    family = Column(String(30))
+    username = Column(String(30))
+    password = Column(String(30))
+    email = Column(String(30))
+    image = Column(String(100))
+    status = Column(Boolean)
 
     def __init__(self, id, name, family, username, password, email, image, status):
         self.id = id
@@ -78,5 +87,5 @@ class Profile(Base):
     def to_tuple(self):
         return tuple(self.__dict__.values())
 
-# a =Profile(1,'behnam','masoumi','behnamlive','behnam12','behnamlive@live.com','asasd',1)
-# print(Profile.to_tuple(a))
+a =Profile(1,'behnam','masoumi','behnamlive','behnam12','behnamlive@live.com','asasd',1)
+print(Profile.to_tuple(a))
