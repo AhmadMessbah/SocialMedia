@@ -10,10 +10,11 @@ class Post(Base):
     __tablename__ = "post_tbl"
 
     id = Column(Integer, primary_key=True)
-    profile_id = Column(Integer, ForeignKey('profile.id'))
-    image = Column(String(300))
+    profile_id = Column(Integer, ForeignKey("profile.id"))
     text = Column(String(300))
+    image = Column(String(300))
     date_time = Column(DateTime)
+
     profile = relationship("Profile")
 
     def __init__(self, profile, text, image, date_time):

@@ -1,38 +1,11 @@
-from tools.database import Database
-from model.entity import  post
-
-class PostDa(Database):
-    def save(self, post):
-        self.transaction("INSERT INTO post_tbl (profile_id,text,image) values (%s,%s,%s)",
-                          [post.profile.code, post.text, post.image])
-        return post
-
-    def edit(self, post):
-        self.transaction("UPDATE post_tbl set text=%s,image=%s  where  code=%s"
-                         , [post.text, post.image, post.code])
-        return post
+from model.da.database import DatabaseManager
+from model.entity import post
+from model.entity.post import Post
 
 
-    def remove(self, code):
-        self.transaction("DELETE FROM post_tbl where code=%s",
-                         [code])
-        return code
-
-    def find_all(self):
-        return self.report("SELECT * FROM post_tbl")
-
-
-    def find_by_code(self, code):
-        return self.report("SELECT * FROM post_tbl where code=%s", [code])
-
-    def find_by_profile(self,profile):
-        return self.report("SELECT * FROM post_tbl where profile_id=%s", [post.profile.code])
-
-# CREATE TABLE post_tbl (
-#   code INT AUTO_INCREMENT PRIMARY KEY,
-#   profile_id INT NOT NULL,
-#   text nvarchar(200),
-#   image nvarchar(200),
-#   date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-#   FOREIGN KEY (profile_id) REFERENCES profile_tbl (code)
-# );
+class PostDa(DatabaseManager):
+    def find_by_profile_id(self, profile_id):
+        self.make_engine()
+        result = self.session.query(Post).filter(Post.profile.id == profile_id)
+        self.session.close()
+        return result
