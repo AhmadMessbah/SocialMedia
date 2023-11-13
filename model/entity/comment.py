@@ -1,11 +1,15 @@
 import re
-from sqlalchemy import Integer,String,Boolean,Date,ForeignKey
+from sqlalchemy import Integer, String, Boolean, Date, ForeignKey
 from sqlalchemy.orm import relationship
 
+from model.entity.base import Base
 from tools.validator import Validator
 
-class Post:
-    def __init__(self, code,post, profile, text, date_time):
+
+class Comment(Base):
+    __tablename__ = "comment_tbl"
+
+    def __init__(self, code, post, profile, text, date_time):
         pass
 
     def __repr__(self):

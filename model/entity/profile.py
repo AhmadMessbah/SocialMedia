@@ -1,21 +1,23 @@
 import re
-from sqlalchemy import Integer,String,Boolean,Date,ForeignKey
+from sqlalchemy import Integer, String, Boolean, Date, ForeignKey
 from sqlalchemy.orm import relationship
 
+from model.entity.base import Base
 from tools.validator import Validator
 
 
-class Profile:
-    def __init__(self,code,name,family,username,password,email,image,status):
+class Profile(Base):
+    __tablename__ = "profile_tbl"
+
+    def __init__(self, code, name, family, username, password, email, image, status):
         self.code = code
         self.name = name
-        self.family= family
-        self.username= username
-        self.password= password
-        self.email= email
-        self.image= image
-        self.status= status
-
+        self.family = family
+        self.username = username
+        self.password = password
+        self.email = email
+        self.image = image
+        self.status = status
 
     @property
     def code(self):
@@ -69,13 +71,12 @@ class Profile:
             self._email = email
         else:
             raise ValueError("invalid email")
+
     def __repr__(self):
         return str(self.__dict__)
 
     def to_tuple(self):
         return tuple(self.__dict__.values())
 
-#a =Profile(1,'behnam','masoumi','behnamlive','behnam12','behnamlive@live.com','asasd',1)
-#print(Profile.to_tuple(a))
-
-
+# a =Profile(1,'behnam','masoumi','behnamlive','behnam12','behnamlive@live.com','asasd',1)
+# print(Profile.to_tuple(a))

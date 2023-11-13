@@ -1,16 +1,19 @@
 import re
-from sqlalchemy import Integer,String,Boolean,Date,ForeignKey
+from sqlalchemy import Integer, String, Boolean, Date, ForeignKey
 from sqlalchemy.orm import relationship
 
+from model.entity.base import Base
 from tools.validator import Validator
 
 
-class Profile:
-    def __init__(self,code,post,profile):
+class Profile(Base):
+    __tablename__ = "like_tbl"
+
+    def __init__(self, code, post, profile):
         self.code = code
-        self.post=post
-        self.profile=profile
-        
+        self.post = post
+        self.profile = profile
+
     def __repr__(self):
         return str(self.__dict__)
 
