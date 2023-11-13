@@ -3,17 +3,18 @@ import mysql.connector
 
 class Database:
     def connect(self):
-        # self.connection = mysql.connector.connect(
-        #     host="localhost",
-        #     user="root",
-        #     password="root123",
-        #     database="mft"
-        # )
+         #self.connection = mysql.connector.connect(
+         #    host="localhost",
+         #    user="root",
+         #    password="root123",
+         #   database="socialmedia"
+         #)
         self.connection = mysql.connector.connect(
             host="localhost",
             user="root",
-            port = 3307,
-            database="mft"
+            port = 3306,
+            password="root123",
+            database="socialmedia"
         )
         self.cursor = self.connection.cursor()
 
