@@ -13,6 +13,7 @@ create table MFT.post_tbl(Code int primary key auto_increment,
                                image nvarchar(30),
                                date_time timestamp,
                                foreign key (profilcode) references profile_tbl(code));
+
 create table MFT.comment_tbl(Codes int primary key auto_increment,
                                Postcode int primary key,
                                profilecode int primary key,
