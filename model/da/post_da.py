@@ -28,4 +28,11 @@ class PostDa(Database):
     def find_by_profile(self,profile):
         return self.report("SELECT * FROM post_tbl where profile_id=%s", [post.profile.code])
 
-
+# CREATE TABLE post_tbl (
+#   code INT AUTO_INCREMENT PRIMARY KEY,
+#   profile_id INT NOT NULL,
+#   text nvarchar(200),
+#   image nvarchar(200),
+#   date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#   FOREIGN KEY (profile_id) REFERENCES profile_tbl (code)
+# );
