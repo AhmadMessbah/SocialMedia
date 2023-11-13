@@ -1,4 +1,6 @@
 import re
+from sqlalchemy import Integer,String,Boolean,Date,ForeignKey
+from sqlalchemy.orm import relationship
 
 from tools.validator import Validator
 
