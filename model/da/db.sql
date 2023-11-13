@@ -8,10 +8,11 @@ create table MFT.profile_tbl(Code int primary key auto_increment,
 							  email varchar(30));
 create table MFT.post_tbl(Code int primary key auto_increment,
                                Postcode int primary key,
-                               profilcode int primary key,
+                               profilcode int,
                                postrecord char(100),
                                image nvarchar(30),
-                               date_time timestamp);
+                               date_time timestamp,
+                               foreign key (profilcode) references profile_tbl(code));
 create table MFT.comment_tbl(Codes int primary key auto_increment,
                                Postcode int primary key,
                                profilecode int primary key,
