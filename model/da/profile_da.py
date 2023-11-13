@@ -1,41 +1,40 @@
-from profile import Profile
-
+from model.entity.profile import Profile
 from tools.database import Database
-
-
 
 
 class ProfileDa(Database):
     def save(self, profile):
-        Database.connect()
-        self.transaction("INSERT INTO profile (name,family,username,password,email,image,status) VALUES(%s,%s,%s,%s,%s,%s,%s)",
-                         [profile.name,profile.family,profile.username,profile.password,profile.email,profile.image,profile.status])
-        Database.transaction()
-        Database.disconnect()
+        sql_command = "INSERT INTO profile (name, family, username, password, email, image, status) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        data = (profile.name, profile.family, profile.username, profile.password, profile.email, profile.image, profile.status)
+        self.execute_sql(sql_command, data)
         return profile
 
     def edit(self, profile):
-        Database.connect()
-        self.transaction("UPDATE profile SET name=%s,family=%s,username=%s,password=%s,email=%s,image=%s,status=%s WHERE CODE=%s",
-                         [profile.name,profile.family,profile.username,profile.password,profile.email,profile.image,profile.status])
-        Database.transaction()
-        Database.disconnect()
+        sql_command = "UPDATE profile SET name=%s, family=%s, username=%s, password=%s, email=%s, image=%s, status=%s WHERE CODE=%s"
+        data = (profile.name, profile.family, profile.username, profile.password, profile.email, profile.image, profile.status, profile.code)
+        self.execute_sql(sql_command, data)
         return profile
 
     def remove(self, code):
-        self.transaction("delete from profile where code=%s, WHERE CODE=%s",
-                         [code,code])
+        sql_command = "DELETE FROM profile WHERE CODE=%s"
+        data = (code,)
+        self.execute_sql(sql_command, data)
         return code
 
     def find_all(self):
-        return self.report("SELECT * FROM profile")
-
+        sql_command = "SELECT * FROM profile"
+        return self.fetch_all_results(sql_command)
 
     def find_by_code(self, code):
-        return self.report("SELECT * FROM profile WHERE CODE=%s", [code])
+        sql_command = "SELECT * FROM profile WHERE CODE=%s"
+        data = (code,)
+        return self.fetch_all_results(sql_command, data)
 
     def find_by_family(self, family):
-        return self.report("SELECT * FROM profile WHERE FAMILY=%s ", [family])
+        sql_command = "SELECT * FROM profile WHERE FAMILY=%s"
+        data = (family,)
+        return self.fetch_all_results(sql_command, data)
 
 a = ProfileDa()
-
+b = Profile(1,'behnam','mas','reza','behna','behnamlive@live.com','behhh',1)
+a.save(b)
