@@ -1,17 +1,20 @@
-from social_media.model.entity.base import Base
-from sqlalchemy import Integer,String,Column,Date,DateTime
+from sqlalchemy.orm import relationship
+
+from model.entity.base import Base
+from sqlalchemy import Integer, String, Column, Date, DateTime, ForeignKey
+
 
 class Comment(Base):
     __tablename__ = "comment"
 
     id = Column(Integer, primary_key=True)
-    post_id = Column(Integer, ForeignKey("post.id"))
-    profile_id = Column(Integer, ForeignKey("profile.id"))
+    # post_id = Column(Integer, ForeignKey("post.id"))
+    # profile_id = Column(Integer, ForeignKey("profile.id"))
     text = Column(String(300))
     date_time = Column(DateTime)
 
-    post = relationship("Post")
-    profile = relationship("Profile")
+    # post = relationship("Post")
+    # profile = relationship("Profile")
 
 
     def __init__(self, code,post, profile, text, date_time):

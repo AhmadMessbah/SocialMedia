@@ -1,0 +1,21 @@
+button{
+    /*display:inline;*/
+    /*margin-top: 20px;*/
+    /*margin-left: 50px;*/
+    /**/
+    /*padding: 20px;*/
+    /*height: 200px;*/
+    /*width: 25%;*/
+}
+
+
+/*.red{*/
+/*      background-color: red;*/
+/*}*/
+
+#edit-btn{
+    position: sticky;
+    background-color: red;
+    /*top:100px;*/
+    left:250px
+}
