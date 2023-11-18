@@ -1,6 +1,6 @@
 from model.da.database import DatabaseManager
-from model.entity import post
-from model.entity.post import Post
+from model.entity import comment
+from model.entity.post import Comment
 from sqlalchemy import text, and_, or_
 
 
