@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 
 from model.da.database import DatabaseManager
 from model.entity.profile import Profile
+from model.entity.like import Like
 
 app = Flask(__name__, template_folder="view")
 
@@ -24,4 +25,15 @@ def profile():
 
         return render_template("home.html", profile_list = da.find_all(Profile))
 
-app.run(host="192.168.39.100", port=80)
+def like():
+    if request.method=="Like":
+        like=Like()
+        like.profile=request.form.get("profile"),
+        like.post=request.form.get("post")
+
+        da=DatabaseManager()
+        da.save(like)
+
+        return render_template("home.html",like_list=da.find_by_id(Like))
+
+app.run(host="192.168.1.3", port=80)
