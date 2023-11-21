@@ -1,0 +1,60 @@
+{% extends "template.html" %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block my_style%}
+<link rel="stylesheet"
+      href="assets/css/profile.css">
+{% endblock %}
+
+{% block content_title %}
+Profile Page
+{% endblock %}
+
+
+{% block content %}
+
+<form action="/profile" method="post">
+    <div class="profile-input"><label for="nameId">Name</label>
+        <input id="nameId" type="text" name="name"></div>
+    <div class="profile-input"><label for="familyId">Family</label>
+        <input id="familyId" type="text" name="family"></div>
+    <div class="profile-input"><label for="usernameId">Username</label>
+        <input id="usernameId" type="text" name="username"></div>
+    <div class="profile-input"><label for="passwordId">Password</label>
+        <input id="passwordId" type="password"
+               name="password"></div>
+    <input type="submit" value="Save">
+</form>
+
+<table class="table table-hover">
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Family</th>
+    <th>Username</th>
+    <th>Operation</th>
+    </thead>
+    <tbody>
+    {% for profile in profile_list: %}
+    <tr>
+        <td>{{profile.id}}</td>
+        <td>{{profile.name}}</td>
+        <td>{{profile.family}}</td>
+        <td>{{profile.username}}</td>
+        <td>
+            <button class="btn btn-warning">Edit</button>
+            <button class="btn btn-danger" onclick="remove({{profile.id}})">Remove</button>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+{% block my_script %}
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{% endblock %}

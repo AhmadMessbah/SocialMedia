@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#main {
+    background: rgb(125, 32, 182);
+    background: linear-gradient(90deg, rgba(125, 32, 182, 1) 0%, rgba(121, 9, 84, 1) 42%, rgba(97, 8, 239, 1) 77%);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#container {
+    width: 45vh;
+    height: 85vh;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+}
+
+#nav {
+    height: 10%;
+    width: 100vh;
+    display: flex;
+    /* position: relative; */
+    margin-top: 4px;
+
+}
+
+#nav img {
+    width: 75%;
+    height: 100%;
+    margin-right: 60px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+#nav a {
+    font-size: 25px;
+    margin: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#users {
+    height: 20%;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#users::-webkit-scrollbar {
+    display: none;
+}
+
+#story {
+    height: 100%;
+}
+
+#story img {
+    border-radius: 50%;
+    width: 30%;
+    height: 80%;
+    margin: 2px;
+    display: inline-block;
+    background: linear-gradient(rgb(221, 17, 218), rgb(71, 19, 148), red);
+    object-fit: center;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.slider-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+    /* position: relative; */
+}
+
+.slider img {
+    width: 100%;
+    display: none;
+}
+
+.arrow-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+.prev-button, .next-button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.prev-button:hover, .next-button:hover {
+    background-color: #f63a3a24;
+    color: #73c732;
+}
+
+.slider {
+    position: relative;
+}
+
+.slider img {
+    width: 100%;
+    height: 40vh;
+    object-fit: center;
+    border-radius: 10px;
+    transition: all ease-in 0.4s;
+
+}
+
+.slider img:hover {
+    scale: 1.3;
+    width: 120%;
+    border-radius: 20px;
+    height: 42vh;
+    overflow: hidden;
+}
+
+.friend-buttons {
+    text-align: center;
+    margin: 15px auto;
+
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    margin-top: 0px;
+    background-color: grey;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.box {
+    width: 100%;
+    height: 4%;
+    margin-bottom: 0px;
+}
+
+.box i {
+    font-size: 26px;
+    margin: 10px 10px;
+    margin-left: 20px;
+}
+
+.ri-heart-fill {
+    cursor: pointer;
+}
+
+#clove {
+    color: white;
+    left: 35%;
+    top: 35%;
+    position: absolute;
+    font-size: 80px;
+    opacity: 0;
+    transition: all ease-in 0.3s;
+}
+
+.ri-share-forward-fill {
+    cursor: pointer;
+}
+
+#full-screen {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-radius: 10px;
+    display: none;
+}

@@ -1,39 +1,28 @@
-from flask import Flask, render_template, request
+from flask import *
 
-from model.da.database import DatabaseManager
-from model.entity.profile import Profile
-from model.entity.like import Like
+#from controller.profile_controller import PersonController
 
-app = Flask(__name__, template_folder="view")
+app = Flask(__name__, template_folder="view", static_folder="view/assets")
 
 
 @app.route("/")
 def home():
-    da = DatabaseManager()
-    return render_template("home.html", profile_list = da.find_all(Profile))
+    return render_template("index.html")
 
+#@app.route("/profile", methods = ["GET","POST", "DELETE"])
+#def profile():
+    #if request.method == "POST":
+     #   PersonController.save(
+      #      request.form.get("name"),
+       #     request.form.get("family"),
+        #    request.form.get("username"),
+         #   request.form.get("password"))
 
-@app.route("/profile", methods=["GET", "POST"])
-def profile():
-    if request.method == "POST":
-        profile = Profile()
-        profile.name= request.form.get("name"),
-        profile.family = request.form.get("family")
+    #if request.method == "DELETE":
+       # PersonController.remove(int(request.args.get("id")))
 
-        da = DatabaseManager()
-        da.save(profile)
+   # status,data = PersonController.find_all()
+    #if status:
+        #return render_template("profile.html", profile_list = data)
 
-        return render_template("home.html", profile_list = da.find_all(Profile))
-
-def like():
-    if request.method=="Like":
-        like=Like()
-        like.profile=request.form.get("profile"),
-        like.post=request.form.get("post")
-
-        da=DatabaseManager()
-        da.save(like)
-
-        return render_template("home.html",like_list=da.find_by_id(Like))
-
-app.run(host="192.168.1.3", port=80)
+app.run(host="", port="80", debug=True)
