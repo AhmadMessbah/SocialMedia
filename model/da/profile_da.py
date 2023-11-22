@@ -8,6 +8,7 @@ class ProfileDa(DatabaseManager):
                  and_(Profile.username == username, Profile.password == password))
              self.session.close()
              return result
+
      def find_by_username(self, username):
          self.make_engine()
          result = self.session.query(Profile).filter(Profile.username == username)
