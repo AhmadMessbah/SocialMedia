@@ -6,7 +6,7 @@ from sqlalchemy import text, and_, or_
 class PostDa(DatabaseManager):
     def find_by_profile_id(self, profile_id):
         self.make_engine()
-        result = self.session.query(Post).filter(Post.profile.id == profile_id)
+        result = self.session.query(Post).filter(Post.profile_id == profile_id)
         self.session.close()
         return result
     def find_by_time(self, datetime1, datetime2):

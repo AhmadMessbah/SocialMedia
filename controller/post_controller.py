@@ -32,25 +32,23 @@ class PostController:
                 post = da.find_by_id(Post, id)
                 if post:
                     da.remove(post)
-                    return post
+                    return True
             except Exception as e:
                 return False, str(e)
         @classmethod
         def find_by_time(self, datetime1, datetime2):
             try:
                 da = PostDa()
-                post = da.find_by_time(Post, datetime1, datetime2)
-                return post
+                post_list = da.find_by_time(datetime1, datetime2)
+                return post_list
             except Exception as e:
                 return False, str(e)
 
         @classmethod
         def find_by_profile_id(self, profile_id):
            try:
-            da = ProfileDa()
-            profile = da.find_by_id(Profile, profile_id)
             da = PostDa()
-            post = da.find_by_time(Post, profile)
-              return post
-            except Exception as e:
-              return False, str(e)
+            post_list = da.find_by_profile_id(profile_id)
+            return post_list
+           except Exception as e:
+            return False, str(e)
