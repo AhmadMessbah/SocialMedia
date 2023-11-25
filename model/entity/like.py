@@ -1,14 +1,19 @@
 import re
+from sqlalchemy import Integer, String, Boolean, Date, ForeignKey
+from sqlalchemy.orm import relationship
 
+from model.entity.base import Base
 from tools.validator import Validator
 
 
-class Profile:
-    def __init__(self,code,post,profile):
-        self.code = code
-        self.post=post
-        self.profile=profile
-        
+class Like(Base):
+    __tablename__ = "like_tbl"
+
+    def __init__(self, id, post, profile):
+        self.id = id
+        self.post = post
+        # self.profile = profile
+
     def __repr__(self):
         return str(self.__dict__)
 
@@ -17,12 +22,12 @@ class Profile:
 
     @property
     def code(self):
-        return self._code
+        return self._id
 
     @code.setter
-    def code(self, code):
-        Validator.is_number(code, True, "Invalid Code")
-        self._code = code
+    def id(self, id):
+        Validator.is_number(id, True, "Invalid Code")
+        self.id = id
 
     @property
     def post(self):

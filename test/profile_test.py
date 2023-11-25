@@ -1,4 +1,9 @@
+from controller.profile_controller import ProfileController
+from model.da.database import DatabaseManager
 from model.entity.profile import Profile
 
-a =Profile(1,'behnam','masoumi','behnamlive','behnam12','behnamlive@live.com','asasd',1)
-print(Profile.to_tuple(a))
+# db = DatabaseManager()
+# p = Profile("a","b","c","d")
+# p = db.save(p)
+
+print(ProfileController.remove(1))
