@@ -1,6 +1,6 @@
 from model.da.database import *
 from model.entity.comment import Comment
-# from model.entity.like import Like
+from model.entity.like import Like
 from model.entity.post import Post
 from model.entity.profile import Profile
 
@@ -35,10 +35,10 @@ comment11.profile_id = profile3.id
 comment11.post_id = post1.id
 da.save(comment11)
 
-# like = Like()
-# like.post_id = post1.id
-# like.profile_id = profile3.id
-# da.save(like)
+like = Like()
+like.post_id = post1.id
+like.profile_id = profile3.id
+da.save(like)
 
 comment12 = Comment()
 comment12.text = "man comment 2 - post1 hastam"
@@ -54,5 +54,5 @@ for post in profile.posts:
     for comment in post.comments:
         print("\t\tComment :", comment.id, comment.text, comment.profile.name)
 #
-#     for like in post.likes:
-#         print("\t\tLike :",like.id, like.profile.name)
+    for like in post.likes:
+        print("\t\tLike :",like.id, like.profile.name)

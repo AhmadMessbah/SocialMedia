@@ -12,7 +12,7 @@ class Post(Base):
     date_time = Column(DateTime)
 
     profile = relationship("Profile",back_populates="posts")
-    # likes = relationship("Like",back_populates="post")
+    likes = relationship("Like",back_populates="post")
     comments = relationship("Comment", back_populates="post")
 
 
