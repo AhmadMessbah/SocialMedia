@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width,
 				initial-scale=1.0">
-    <title>{% block title %}{% end-block %}</title>
+    <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet"
           href="assets/css/reset.css">
 
@@ -30,7 +30,7 @@
     <link rel="stylesheet"
           href="assets/css/fonts.min.css">
 
-   {% block my_style %} {% end-block %}
+   {% block my_style %} {% endblock %}
 </head>
 
 <body>
@@ -194,13 +194,13 @@
             <div class="report-header">
                 <h1 class="recent-Articles">
                     {% block content_title %}
-                    {% end-block %}
+                    {% endblock %}
                 </h1>
             </div>
 
             <div class="report-body">
                 {% block content %}
-                {% end-block %}
+                {% endblock %}
             </div>
         </div>
     </div>
@@ -210,6 +210,6 @@
 <script src="assets/js/bootstrap/bootstrap.bundle.js"></script>
 <script src="assets/css/fontawesome/all.css"></script>
 <script src="assets/js/index.js"></script>
-{% block my_script %} {% end-block %}
+{% block my_script %} {% endblock %}
 </body>
 </html>

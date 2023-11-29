@@ -1,0 +1,28 @@
+div{
+    border: 1px solid black;
+}
+
+.menu-bar {
+    height: 7%;
+}
+
+.content {
+    height: 86%;
+}
+
+.footer {
+    height: 7%;
+}
+
+.post-btn{
+    width: 100px;
+    margin-left: 20px;
+}
+
+.test{
+    display: inline;
+}
+
+.shadow-dreamy {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07), 0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07);
+}
