@@ -14,8 +14,7 @@ class ProfileController:
             profile = Profile(name, family, username, password)
             da.save(profile)
             return True, profile
-            # else:
-            #     raise DuplicateUsernameError("Duplicate Username")
+
 
         except Exception as e:
             e.with_traceback()
