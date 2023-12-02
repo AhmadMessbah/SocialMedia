@@ -28,8 +28,7 @@ post1 = Post("man post1 haastam")
 post1.profile_id = profile1.id
 da.save(post1)
 
-comment11 = Comment()
-comment11.text = "man comment 1 - post1 hastam"
+comment11 = Comment("man comment 1 - post1 hastam")
 comment11.profile_id = profile3.id
 comment11.post_id = post1.id
 da.save(comment11)
@@ -39,8 +38,7 @@ like.post_id = post1.id
 like.profile_id = profile3.id
 da.save(like)
 
-comment12 = Comment()
-comment12.text = "man comment 2 - post1 hastam"
+comment12 = Comment("man comment 2 - post1 hastam")
 comment12.profile_id = profile2.id
 comment12.post_id = post1.id
 da.save(comment12)

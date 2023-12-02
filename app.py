@@ -75,6 +75,9 @@ def register():
 #     return render_template("login.html")
 # return render_template("profile.html", profile_list=ProfileController.find_all()[1])
 
+@app.route("/forget")
+def forget():
+    return  render_template("forget-password.html")
 
 @app.route("/logout")
 def logout():

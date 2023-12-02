@@ -1,6 +1,7 @@
 from sqlalchemy import Integer, String, Boolean, Date, ForeignKey, Column, DateTime
 from sqlalchemy.orm import relationship
 from model.entity.base import Base
+from datetime import datetime
 
 
 class Post(Base):
@@ -19,7 +20,7 @@ class Post(Base):
     def __init__(self, text, image=None):
         self.text = text
         self.image = image
-        # self.date_time = self.date_time.now()
+        self.date_time = datetime.now()
 
     def __repr__(self):
         return str(self.__dict__)

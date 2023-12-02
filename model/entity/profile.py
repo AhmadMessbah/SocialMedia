@@ -10,5 +10,7 @@ class Profile(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(30))
     family = Column(String(30))
+    username = Column(String(30))
+    password = Column(String(30))
 
     posts = relationship("Post",back_populates="profile")

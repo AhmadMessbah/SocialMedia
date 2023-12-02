@@ -2,7 +2,7 @@ from sqlalchemy.orm import relationship
 
 from model.entity.base import Base
 from sqlalchemy import Integer, String, Column, Date, DateTime, ForeignKey
-
+from datetime import datetime
 
 class Comment(Base):
     __tablename__ = "comment_tbl"
@@ -17,12 +17,9 @@ class Comment(Base):
     profile = relationship("Profile")
 
 
-    # def __init__(self, code,post, profile, text, date_time):
-    #     self.code = code
-    #     self.post = post
-    #     self.profile = profile
-    #     self.text = text
-    #     self.date_time = date_time
+    def __init__(self,  text):
+        self.text = text
+        self.date_time = datetime.now()
 
     def __repr__(self):
         return str(self.__dict__)
