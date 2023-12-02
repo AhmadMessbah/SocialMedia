@@ -3,29 +3,28 @@ from model.entity.comment import Comment
 from model.entity.like import Like
 from model.entity.post import Post
 from model.entity.profile import Profile
-
+#
 da = DataBaseManager()
 
 profile1 = Profile()
-profile1.name = "poster"
-profile1.family = "poster"
+profile1.name = "post owner"
+profile1.family = "post owner"
 da.save(profile1)
-print(profile1.id, "saved")
+print(profile1.id, profile1.name, profile1.family)
 
 profile2 = Profile()
-profile2.name = "commenter1"
-profile2.family = "commenter1"
+profile2.name = "comment-1"
+profile2.family = "comment-1"
 da.save(profile2)
-print(profile2.id, "saved")
+print(profile2.id, profile2.name, profile2.family)
 
 profile3 = Profile()
-profile3.name = "commenter-like2"
-profile3.family = "commenter-like2"
+profile3.name = "comment2-like"
+profile3.family = "comment2-like"
 da.save(profile3)
-print(profile3.id, "saved")
+print(profile3.id, profile3.name, profile3.family)
 
-post1 = Post()
-post1.text = "man post1 haastam"
+post1 = Post("man post1 haastam")
 post1.profile_id = profile1.id
 da.save(post1)
 

@@ -1,6 +1,7 @@
-from sqlalchemy import Integer, String, Boolean, Date, ForeignKey, Column , DateTime
+from sqlalchemy import Integer, String, Boolean, Date, ForeignKey, Column, DateTime
 from sqlalchemy.orm import relationship
 from model.entity.base import Base
+
 
 class Post(Base):
     __tablename__ = "post_tbl"
@@ -11,16 +12,14 @@ class Post(Base):
     image = Column(String(300))
     date_time = Column(DateTime)
 
-    profile = relationship("Profile",back_populates="posts")
-    likes = relationship("Like",back_populates="post")
+    profile = relationship("Profile", back_populates="posts")
+    likes = relationship("Like", back_populates="post")
     comments = relationship("Comment", back_populates="post")
 
-
-    # def __init__(self, profile, text, image):
-    #     self.profile = profile
-    #     self.text = text
-    #     self.image = image
-    #     self.date_time = self.date_time.now()
+    def __init__(self, text, image=None):
+        self.text = text
+        self.image = image
+        # self.date_time = self.date_time.now()
 
     def __repr__(self):
         return str(self.__dict__)
