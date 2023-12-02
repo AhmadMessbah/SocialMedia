@@ -1,4 +1,4 @@
-from controller.access_denied_error import AccessDeniedError
+from controller.exception.access_denied_error import AccessDeniedError
 from controller.exception.duplicate_username_error import DuplicateUsernameError
 from model.da.profile_da import ProfileDa
 from model.entity.profile import Profile
@@ -11,6 +11,9 @@ class ProfileController:
             da = ProfileDa()
             # todo : check duplicate user name first
             # if (da.find_by_username(username) or not da.find_by_username(username)[0]):
+
+            print("Controller : ",name, family, username, password)
+
             profile = Profile(name, family, username, password)
             da.save(profile)
             return True, profile

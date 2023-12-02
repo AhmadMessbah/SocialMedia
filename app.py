@@ -1,10 +1,11 @@
 from audioop import reverse
 
 from flask import Flask, render_template, redirect, request, session
-from controllers.like_controller import LikeController
+from controller.like_controller import LikeController
 from flask_session import Session
 
-from controllers.profile_controller import ProfileController
+from controller.profile_controller import ProfileController
+
 app = Flask(__name__, template_folder="view", static_folder="view/assets")
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
@@ -30,6 +31,9 @@ def login():
 
 @app.route("/profile", methods=["POST", "GET", "DELETE"])
 def profile():
+    if not session.get("username"):
+        return render_template("login.html")
+
     if request.method == "POST":
         name = request.form.get("name")
         family = request.form.get("family")
@@ -39,29 +43,37 @@ def profile():
     elif request.method == "DELETE":
         ProfileController.remove(request.args.get("id"))
 
-    # if not session.get("username"):
-    #     return render_template("login.html")
     return render_template("profile.html", profile_list=ProfileController.find_all()[1])
 
 
-#@app.route("/like",methods=["POST","GET","DELETE"])
-#def like(request ,pk):
-    #object=get_object_or_404(MyModel,pk=pk)
-    #if object.likes.filter(user=request.user).exists():
-      #  object.likes.remove(request.user)
-    #else:
-       # object.likes.add(request.user)
-    #object.save()
-    #return render_template("like.html", like_list=LikeController.find_all()[1])
-   # return redirect(reverse('my_app:object_detail',kwargs={'pk':pk}))
+@app.route("/register", methods=["POST", "GET"])
+def register():
+    if request.method == "POST":
+        # if request.form.get("password") == request.form.get("repeat_password"):
 
-    # if not session.get("username"):
-    #     return render_template("login.html")
-    #return render_template("profile.html", profile_list=ProfileController.find_all()[1])
+        status, data = ProfileController.save(
+            request.form.get("name"),
+            request.form.get("family"),
+            request.form.get("email"),
+            request.form.get("password"))
+
+    return render_template("register.html")
 
 
+# @app.route("/like",methods=["POST","GET","DELETE"])
+# def like(request ,pk):
+# object=get_object_or_404(MyModel,pk=pk)
+# if object.likes.filter(user=request.user).exists():
+#  object.likes.remove(request.user)
+# else:
+# object.likes.add(request.user)
+# object.save()
+# return render_template("like.html", like_list=LikeController.find_all()[1])
+# return redirect(reverse('my_app:object_detail',kwargs={'pk':pk}))
 
-
+# if not session.get("username"):
+#     return render_template("login.html")
+# return render_template("profile.html", profile_list=ProfileController.find_all()[1])
 
 
 @app.route("/logout")

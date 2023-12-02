@@ -12,4 +12,3 @@ class Profile(Base):
     family = Column(String(30))
 
     posts = relationship("Post",back_populates="profile")
-

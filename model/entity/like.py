@@ -1,12 +1,7 @@
-import re
-
 from sqlalchemy.orm import relationship
 
 from model.entity.base import Base
 from sqlalchemy import Integer, String, Column, Date, DateTime, ForeignKey
-
-from tools.validator import Validator
-
 
 class Like(Base):
     __tablename__ = "like_tbl"
