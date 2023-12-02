@@ -1,4 +1,7 @@
+from audioop import reverse
+
 from flask import Flask, render_template, redirect, request, session
+from controllers.like_controller import LikeController
 from flask_session import Session
 
 from controllers.profile_controller import ProfileController
@@ -39,6 +42,26 @@ def profile():
     # if not session.get("username"):
     #     return render_template("login.html")
     return render_template("profile.html", profile_list=ProfileController.find_all()[1])
+
+
+#@app.route("/like",methods=["POST","GET","DELETE"])
+#def like(request ,pk):
+    #object=get_object_or_404(MyModel,pk=pk)
+    #if object.likes.filter(user=request.user).exists():
+      #  object.likes.remove(request.user)
+    #else:
+       # object.likes.add(request.user)
+    #object.save()
+    #return render_template("like.html", like_list=LikeController.find_all()[1])
+   # return redirect(reverse('my_app:object_detail',kwargs={'pk':pk}))
+
+    # if not session.get("username"):
+    #     return render_template("login.html")
+    #return render_template("profile.html", profile_list=ProfileController.find_all()[1])
+
+
+
+
 
 
 @app.route("/logout")
