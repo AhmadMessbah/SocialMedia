@@ -10,11 +10,14 @@
 
     <title>SocialMedia - Register</title>
 
-    <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="assets/fonts/BTehran.eot"
+    <link rel="stylesheet"
+          href="{{url_for('static', filename='css/bootstap/bootstrap.min.css')}}">
+
+        <link rel="stylesheet"
+          href="{{url_for('static', filename='fonts/BTehran.eot')}}">
         rel="stylesheet">
-    <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+          href="{{url_for('static', filename='css/bootstrap.css')}}">
 
 </head>
 
@@ -85,11 +88,10 @@
     </div>
 
 
-    <script src="assets/css/bootstrap/bootstrap.min.css"></script>
-    <script src="assets/js/bootstrap/bootstrap.bundle.js"></script>
-    <script src="assets/js/fontawesome/fontawesome.js"></script>
-    <script src="assets/css/bootstrap/bootstrap.min.css"></script>
-
+ <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.js') }}"></script>
+<script src="{{ url_for('static', filename='js/fontawesome/all.js') }}"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 
 </html>

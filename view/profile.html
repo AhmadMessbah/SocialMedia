@@ -6,7 +6,7 @@ Profile
 
 {% block my_style%}
 <link rel="stylesheet"
-      href="assets/css/profile.css">
+      href="{{url_for('static', filename='css/profile.css')}}">
 {% endblock %}
 
 {% block content_title %}
@@ -56,5 +56,5 @@ Profile Page
 {% endblock %}
 
 {% block my_script %}
-<script src="assets/js/profile.js"></script>
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
 {% endblock %}
