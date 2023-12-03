@@ -1,0 +1,64 @@
+body {
+ font-family: Arial, sans-serif;
+}
+
+nav ul {
+ list-style-type: none;
+ padding: 0;
+ background-color: #333;
+}
+
+nav ul li a {
+ display: block;
+ color: white;
+ text-align: center;
+ padding: 14px 16px;
+ text-decoration: none;
+}
+
+nav ul li a:hover {
+ background-color: #111;
+}
+
+.profile {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding: 20px;
+}
+
+.profile img {
+ width: 150px;
+ height: 150px;
+ border-radius: 50%;
+}
+
+.profile h2 {
+ margin: 10px 0;
+}
+
+.create-post {
+ padding: 20px;
+}
+
+.create-post label {
+ display: block;
+ margin-bottom: 5px;
+}
+
+.create-post input, .create-post textarea {
+ width: 100%;
+ margin-bottom: 10px;
+}
+
+.create-post button {
+ background-color: #333;
+ color: white;
+ padding: 10px 20px;
+ border: none;
+ cursor: pointer;
+}
+
+.create-post button:hover {
+ background-color: #111;
+}

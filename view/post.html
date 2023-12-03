@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="assets/css/post.css">
+ <title>Social Media Website</title>
+</head>
+<body>styles
+ <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+ </nav>
+
+ <main>
+    <div class="profile">
+      <img src="profile.jpg" alt="Profile picture">
+      <h2>Username</h2>
+      <p>Status: Status goes here</p>
+    </div>
+
+    <div class="create-post">
+      <form>
+        <label for="post-title">Post Title</label>
+        <input type="text" id="post-title" name="post-title">
+
+        <label for="post-content">Post Content</label>
+        <textarea id="post-content" name="post-content"></textarea>
+
+        <label for="post-image">Choose Image</label>
+        <input type="file" id="post-image" name="post-image">
+
+        <button type="submit">Submit Post</button>
+      </form>
+    </div>
+ </main>
+</body>
+</html>
