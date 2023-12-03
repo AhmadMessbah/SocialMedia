@@ -10,19 +10,19 @@
 				initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"
+    <link rel="stylesheet" href="assets/css/reset.css"
       etag="abcdefg">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"
+    <link rel="stylesheet" href="assets/css/style.css"
       etag="abcdefg">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}"
+    <link rel="stylesheet" href="assets/css/responsive.css"
       etag="abcdefg">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css"
     etag="abcdefg">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.css') }}"
+    <link rel="stylesheet" href="assets/css/all.css"
     etag="abcdefg">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}"
+    <link rel="stylesheet" href="assets/css/animate.min.css"
     etag="abcdefg">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.min.css') }}" etag="abcdefg">
+    <link rel="stylesheet" href="assets/css/fonts.min.css" etag="abcdefg">
 
    {% block my_style %} {% endblock %}
 </head>
@@ -202,10 +202,11 @@
 
 
 {% block my_script %}
-    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/Fontawesome/all.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  <script src="assets/js/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/bootstrap/bootstrap.bundle.js"></script>
+  <script src="assets/js/fontawesome/all.js"></script>
+  <script src="assets/js/index.js"></script>
+>
 {% endblock %}
 </body>
 </html>
