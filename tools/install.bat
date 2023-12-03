@@ -1,3 +1,5 @@
+pip install cryptography
+
 pip install mysql-connector-python
 pip install pymysql
 

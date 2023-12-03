@@ -1,5 +1,6 @@
 import re
 from sqlalchemy import Integer, String, Boolean, Date, ForeignKey, Column
+from sqlalchemy.orm import relationship
 
 from model.entity.base import Base
 
@@ -9,4 +10,7 @@ class Profile(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(30))
     family = Column(String(30))
+    username = Column(String(30))
+    password = Column(String(30))
 
+    posts = relationship("Post",back_populates="profile")

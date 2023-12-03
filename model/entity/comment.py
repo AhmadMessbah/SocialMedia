@@ -2,27 +2,24 @@ from sqlalchemy.orm import relationship
 
 from model.entity.base import Base
 from sqlalchemy import Integer, String, Column, Date, DateTime, ForeignKey
-
+from datetime import datetime
 
 class Comment(Base):
-    __tablename__ = "comment"
+    __tablename__ = "comment_tbl"
 
     id = Column(Integer, primary_key=True)
-    # post_id = Column(Integer, ForeignKey("post.id"))
-    # profile_id = Column(Integer, ForeignKey("profile.id"))
+    post_id = Column(Integer, ForeignKey("post_tbl.id"))
+    profile_id = Column(Integer, ForeignKey("profile_tbl.id"))
     text = Column(String(300))
     date_time = Column(DateTime)
 
-    # post = relationship("Post")
-    # profile = relationship("Profile")
+    post = relationship("Post")
+    profile = relationship("Profile")
 
 
-    def __init__(self, code,post, profile, text, date_time):
-        self.code = code
-        self.post = post
-        self.profile = profile
+    def __init__(self,  text):
         self.text = text
-        self.date_time = date_time
+        self.date_time = datetime.now()
 
     def __repr__(self):
         return str(self.__dict__)

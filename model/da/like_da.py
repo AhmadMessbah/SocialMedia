@@ -1,8 +1,8 @@
-from model.da.database import DatabaseManager
+from model.da.database import *
 from model.entity.like import Like
 
 
-class LikeDa(DatabaseManager):
+class LikeDa(DataBaseManager):
     def find_by_profile_id(self,profile_id):
         self.make_engine()
         result=self.session.query(Like).filter(Like.profile.id == profile_id)
@@ -17,7 +17,6 @@ class LikeDa(DatabaseManager):
         return result
 
 
-
     def find_by_username(self, username):
         self.make_engine()
         result = self.session.query(Like).filter(Like.profile.username == username)
@@ -25,12 +24,13 @@ class LikeDa(DatabaseManager):
         return result
     
     
-    def find_by_image(self, image):
-        self.make_engine()
-        result = self.session.query(Like).filter(Like.post.image == image)
-        self.session.close()
-        return result
+    # def find_by_image(self, image):
+    #     self.make_engine()
+    #     result = self.session.query(Like).filter(Like.post.image == image)
+    #     self.session.close()
+    #     return result
 
 
+    # todo : find_likes_count_by_profile_id
 
 

@@ -1,0 +1,19 @@
+div{
+    border: 1px solid black;
+}
+
+.menu-bar {
+    height: 7%;
+}
+
+.main-content {
+    height: 86%;
+}
+
+.footer {
+    height: 7%;
+}
+
+.content{
+    padding: 20px;
+}
