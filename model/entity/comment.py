@@ -21,6 +21,14 @@ class Comment(Base):
         self.text = text
         self.date_time = datetime.now()
 
+        def __init__(self, id, post, profile):
+            self.id = id
+            self.post = post
+            # self.profile = profile
+
+
+
+
     def __repr__(self):
         return str(self.__dict__)
 
