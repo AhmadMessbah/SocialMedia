@@ -10,15 +10,14 @@
 
     <title>SocialMedia - Register</title>
 
-    <link rel="stylesheet"
-          href="{{url_for('static', filename='css/bootstap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"
+    etag="abcdefg">
 
-        <link rel="stylesheet"
-          href="{{url_for('static', filename='fonts/BTehran.eot')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/BTehran.eot') }}"
+    etag="abcdefg">
         rel="stylesheet">
-    <link rel="stylesheet"
-          href="{{url_for('static', filename='css/bootstrap.css')}}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}"
+    etag="abcdefg">
 </head>
 
 <body class="bg-gradient-primary">
@@ -88,10 +87,11 @@
     </div>
 
 
- <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.js') }}"></script>
-<script src="{{ url_for('static', filename='js/fontawesome/all.js') }}"></script>
-<script src="{{ url_for('static', filename='js/index.js') }}"></script>
-</body>
+{% block my_script %}
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.bundle.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Fontawesome/all.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}
 
 </html>
