@@ -1,7 +1,3 @@
-# import model.entity
-#
-# model.entity.test()
+from controller import *
 
-
-# from model.entity import *
-# test()
+print(PostController.find_by_profile_username("aa"))

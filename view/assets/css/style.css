@@ -333,3 +333,7 @@ background-color: rgb(0, 177, 0);
 color: white;
 border-radius: 4px;
 }
+
+a{
+	text-decoration: none;
+}

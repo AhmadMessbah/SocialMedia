@@ -11,4 +11,4 @@ from model.entity import Profile
 # print(da.find_by_username_password("aa","bb111").json())
 
 # print(ProfileController.save("aaa", "bbbb", "aaeeee", "1231"))
-print(ProfileController.login("zzzz@zzz.com", "zzzz"))
+# print(ProfileController.login("zzzz@zzz.com", "zzzz"))
