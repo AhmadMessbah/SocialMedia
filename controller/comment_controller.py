@@ -82,3 +82,12 @@ class CommentController:
             return True, da.find_by_image(time)
         except Exception as e:
             return False, str(e)
+
+
+    @classmethod
+    def find_by_post_id(cls,postid):
+        try:
+            da=CommentDa()
+            return True,da.find_by_podst_id(postid)
+        except Exception as e:
+            return False,str(e)
