@@ -1,5 +1,3 @@
-from controller.exception.access_denied_error import AccessDeniedError
-from controller.exception.duplicate_username_error import DuplicateUsernameError
 from model.da.like_da import LikeDa
 from model.entity.like import Like
 
@@ -8,41 +6,44 @@ class LikeController:
     @classmethod
     def save(cls, post, profile):
         try:
-            da=LikeDa()
-            if not da.find_by_post_id(post):
-              like=Like(post,profile)
-              da.save(like)
-              return True, Like
+            person = Post(profile, post)
+            da = LikeDa()
+            return True, da.save(post)
         except Exception as e:
-            return False , str(e)
+            return False, str(e)
 
     @classmethod
     def edit(cls, code, profile, post):
         try:
+            like = Like(code, profile, post)
             da = LikeDa()
-            if not da.find_by_post_id(post):
-                like = Like( post, profile)
-                da.edit(like)
-                return True, Like
+            return True, da.edit(profile)
         except Exception as e:
-            e.with_traceback()
             return False, str(e)
+
     @classmethod
-    def remove(cls, code, profile, post):
+    def remove(cls, code):
         try:
             da = LikeDa()
-            like = Like( post, profile)
-            return True,  da.remove(like)
+            return True, da.remove(code)
         except Exception as e:
             return False, str(e)
+
     @classmethod
     def find_all(cls):
         try:
             da = LikeDa()
-            return True, da.find_all(Like)
+            return True, da.find_all()
         except Exception as e:
             return False, str(e)
 
+    @classmethod
+    def find_by_code(cls, code):
+        try:
+            da = LikeDa()
+            return True, da.find_by_code(code)
+        except Exception as e:
+            return False, str(e)
 
     @classmethod
     def find_by_post(cls, post):
@@ -60,6 +61,13 @@ class LikeController:
         except Exception as e:
             return False, str(e)
 
+    @classmethod
+    def find_by_username(cls, username):
+        try:
+            da = LikeDa()
+            return True, da.find_by_username(username)
+        except Exception as e:
+            return False, str(e)
 
 
 def find_by_image(cls, image):

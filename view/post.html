@@ -17,16 +17,16 @@ Post Page
 
 <div class="row">
     <div class="create-post">
-    <form action="/post" method="post">
-        <label for="post-content">Post Content</label>
-        <textarea id="post-content" name="text"></textarea>
+        <form action="/post" method="post">
+            <label for="post-content">Post Content</label>
+            <textarea id="post-content" name="text"></textarea>
 
-        <label for="post-image">Choose Image</label>
-        <input type="file" id="post-image" name="image">
+            <label for="post-image">Choose Image</label>
+            <input type="file" id="post-image" name="image">
 
-        <button type="submit">Submit Post</button>
-    </form>
-</div>
+            <button type="submit">Submit Post</button>
+        </form>
+    </div>
 </div>
 <br><br>
 <div class="row">
@@ -34,20 +34,22 @@ Post Page
         <h3>Posts</h3>
         <table class="table table-primary table-hover">
             <thead>
-                <tr class="row">
-                    <th class="col-1">Id</th>
-                    <th class="col-9">Post</th>
-                    <th class="col-2">View</th>
-                </tr>
+            <tr class="row">
+                <th class="col-1">Id</th>
+                <th class="col-9">Post</th>
+                <th class="col-2">View</th>
+            </tr>
             </thead>
             <tbody>
+            {% for post in posts %}
             <tr class="row">
-                <td class="col-1">1</td>
-                <td class="col-9">salam</td>
+                <td class="col-1">{{ post.id }}</td>
+                <td class="col-9">{{ post.text }}</td>
                 <td class="col-2">
-                    <button onclick="viewComments(1)" class="btn btn-primary">Comments</button>
+                    <button onclick="viewComments({{ post.id }})" class="btn btn-primary">Comments</button>
                 </td>
             </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
@@ -56,16 +58,13 @@ Post Page
         <h3>Comments</h3>
         <table class="table table-warning">
             <thead>
-                <tr class="row">
-                    <th class="col-9">Comment</th>
-                    <th class="col-3">By</th>
-                </tr>
+            <tr class="row">
+                <th class="col-9">Comment</th>
+                <th class="col-3">By</th>
+            </tr>
             </thead>
             <tbody>
-            <tr class="row">
-                <td class="col-9">salam</td>
-                <td class="col-3">ahmad</td>
-            </tr>
+
             </tbody>
         </table>
     </div>

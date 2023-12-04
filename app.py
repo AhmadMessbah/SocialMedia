@@ -66,8 +66,7 @@ def post():
         return render_template("login.html")
     if request.method == "POST":
         pass
-
-    return render_template("post.html")
+    return render_template("post.html", posts=ProfileController.find_by_username(session.get("username"))[1].posts)
 
 
 @app.route("/forget")
