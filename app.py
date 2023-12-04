@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request, session
 from flask_session import Session
 
-from controller.profile_controller import ProfileController
+from controller import *
 
 app = Flask(__name__, template_folder="view", static_folder="view/assets")
 app.config["SESSION_PERMANENT"] = False

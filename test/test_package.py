@@ -1,7 +1,2 @@
-# import model.entity
-#
-# model.entity.test()
+from controller import *
 
-
-# from model.entity import *
-# test()
