@@ -1,5 +1,6 @@
 from model.da.database import *
-from model.entity.post import Post
+from model.entity import *
+
 
 
 class PostDa(DataBaseManager):

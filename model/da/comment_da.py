@@ -1,5 +1,6 @@
 from model.da.database import *
-from model.entity.comment import Comment
+from model.entity import *
+
 
 
 

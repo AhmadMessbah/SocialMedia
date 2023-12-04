@@ -1,5 +1,6 @@
 from model.da.database import *
-from model.entity.like import Like
+from model.entity import *
+
 
 
 class LikeDa(DataBaseManager):

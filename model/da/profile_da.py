@@ -1,5 +1,5 @@
 from model.da.database import *
-from model.entity.profile import Profile
+from model.entity import *
 
 
 class ProfileDa(DataBaseManager):
