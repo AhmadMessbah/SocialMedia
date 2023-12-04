@@ -129,7 +129,7 @@ height: calc(100vh - 70px);
 width: 100%;
 overflow-y: scroll;
 overflow-x: hidden;
-padding: 40px 30px 30px 30px;
+padding: 15px 15px 15px 15px;
 }
 
 .main::-webkit-scrollbar-thumb {
@@ -261,12 +261,12 @@ letter-spacing: 3px;
 
 .report-container {
 min-height: 300px;
-max-width: 1200px;
-margin: 70px auto 0px auto;
+/*max-width: 1200px;*/
+margin: 20px 20px 0px 20px;
 background-color: #ffffff;
 border-radius: 30px;
 box-shadow: 3px 3px 10px rgb(188, 188, 188);
-padding: 0px 20px 20px 20px;
+padding: 0px 10px 10px 10px;
 }
 .report-header {
 height: 80px;

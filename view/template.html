@@ -10,21 +10,15 @@
 				initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
 
-    <link rel="stylesheet" href="assets/css/reset.css"
-      etag="abcdefg">
-    <link rel="stylesheet" href="assets/css/style.css"
-      etag="abcdefg">
-    <link rel="stylesheet" href="assets/css/responsive.css"
-      etag="abcdefg">
-    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css"
-    etag="abcdefg">
-    <link rel="stylesheet" href="assets/css/all.css"
-    etag="abcdefg">
-    <link rel="stylesheet" href="assets/css/animate.min.css"
-    etag="abcdefg">
-    <link rel="stylesheet" href="assets/css/fonts.min.css" etag="abcdefg">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/all.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/fonts.min.css') }}">
+    {% block myStyle %} {% endblock %}
 
-   {% block my_style %} {% endblock %}
 </head>
 
 <body>
@@ -60,9 +54,9 @@
              alt="">
         <div class="dp">
             <a href="/profile"><img src=
-                         "https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-                 class="dpicn"
-                 alt="dp"></a>
+                                            "https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+                                    class="dpicn"
+                                    alt="dp"></a>
         </div>
     </div>
 
@@ -138,52 +132,6 @@
             </div>
         </div>
 
-        <div class="box-container">
-
-            <div class="box box1">
-                <div class="text">
-                    <h2 class="topic-heading">60.5k</h2>
-                    <h2 class="topic">Article Views</h2>
-                </div>
-
-                <img src=
-                             "https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
-                     alt="Views">
-            </div>
-
-            <div class="box box2">
-                <div class="text">
-                    <h2 class="topic-heading">150</h2>
-                    <h2 class="topic">Likes</h2>
-                </div>
-
-                <img src=
-                             "https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png"
-                     alt="likes">
-            </div>
-
-            <div class="box box3">
-                <div class="text">
-                    <h2 class="topic-heading">320</h2>
-                    <h2 class="topic">Comments</h2>
-                </div>
-
-                <img src=
-                             "https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
-                     alt="comments">
-            </div>
-
-            <div class="box box4">
-                <div class="text">
-                    <h2 class="topic-heading">70</h2>
-                    <h2 class="topic">Published</h2>
-                </div>
-
-                <img src=
-                             "https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png" alt="published">
-            </div>
-        </div>
-
         <div class="report-container">
             <div class="report-header">
                 <h1 class="recent-Articles">
@@ -201,12 +149,11 @@
 </div>
 
 
-{% block my_script %}
-  <script src="assets/js/jquery-3.7.1.min.js"></script>
-  <script src="assets/js/bootstrap/bootstrap.bundle.js"></script>
-  <script src="assets/js/fontawesome/all.js"></script>
-  <script src="assets/js/index.js"></script>
->
+{% block myScript %}
+<script src="{{ url_for ('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ url_for ('static', filename='js/bootstrap/bootstrap.bundle.js') }}"></script>
+<script src="{{ url_for ('static', filename='js/fontawesome/all.js') }}"></script>
+<script src="{{ url_for ('static', filename='js/index.js') }}"></script>
 {% endblock %}
 </body>
 </html>

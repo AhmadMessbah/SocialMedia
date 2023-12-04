@@ -3,11 +3,10 @@ from model.entity.like import Like
 
 
 class LikeController:
-
     @classmethod
     def save(cls, post, profile):
         try:
-            person = post(None, profile, post)
+            person = Post(None, profile, post)
             da = LikeDa()
             return True, da.save(post)
         except Exception as e:
