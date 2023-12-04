@@ -1,20 +1,11 @@
 {% extends "template.html" %}
 
 {% block title %}
-<head>
-    <meta charset="UTF-8">
-    <title>Profile Page</title>
-</head>
-<body>
-<header>
-    <h1>Profile Page</h1>
-</header>
-<main>
+Profile Page
 {% endblock %}
 
 {% block myStyle%}
-<link rel="stylesheet"
-      href="assets/css/profile.css">
+<link rel="stylesheet" href="assets/css/profile.css">
 {% endblock %}
 
 {% block content_title %}
@@ -26,43 +17,22 @@ Profile Page
 
 <form action="/profile" method="post">
     <div class="profile-input"><label for="nameId">Name</label>
-        <input id="nameId" type="text" name="name"></div>
+        <input id="nameId" type="text" name="name" value="{{profile.name}}" class="form-control form-control-user">
+    </div>
     <div class="profile-input"><label for="familyId">Family</label>
-        <input id="familyId" type="text" name="family"></div>
+        <input id="familyId" type="text" name="family" value="{{profile.family}}"
+               class="form-control form-control-user"></div>
     <div class="profile-input"><label for="usernameId">Username</label>
-        <input id="usernameId" type="text" name="username"></div>
+        <input id="usernameId" type="text" name="username" value="{{profile.username}}"
+               class="form-control form-control-user"></div>
     <div class="profile-input"><label for="passwordId">Password</label>
-        <input id="passwordId" type="password"
-               name="password"></div>
-    <input type="submit" value="Save">
+        <input id="passwordId" type="password" name="password" value="{{profile.password}}"
+               class="form-control form-control-user"></div>
+    <br>
+    <input class="btn btn-primary btn-user btn-block" type="submit" value="Edit">
 </form>
 
-<table class="table table-hover">
-    <thead>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Family</th>
-    <th>Username</th>
-    <th>Operation</th>
-    </thead>
-    <tbody>
-    {% for profile in profile_list: %}
-    <tr>
-        <td>{{profile.id}}</td>
-        <td>{{profile.name}}</td>
-        <td>{{profile.family}}</td>
-        <td>{{profile.username}}</td>
-        <td>
-            <button class="btn btn-warning">Edit</button>
-            <button class="btn btn-danger" onclick="remove({{profile.id}})">Remove</button>
-        </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-<footer>
-    <see more>
-<footer>
+
 {% endblock %}
 
 {% block myScript %}

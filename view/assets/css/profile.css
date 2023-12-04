@@ -208,3 +208,7 @@ button {
     border-radius: 10px;
     display: none;
 }
+
+.profile-input{
+    width: 40%;
+}

@@ -25,7 +25,6 @@
 </head>
 
 <body class="bg-gradient-primary">
-<h1>{{message}}</h1>
 
 <div class="container">
 
@@ -41,32 +40,37 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">login</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                                </div>
+                                <div class="text-center">
+                                    <h3 style="color: red">{{message}}</h3>
                                 </div>
                                 <form class="user" action="/login" method="post">
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="Enter Email Address...">
+                                        <input type="text" class="form-control form-control-user" name="username"
+                                               id="exampleInputEmail" placeholder="Enter Username">
                                     </div>
+                                    <br>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" class="form-control form-control-user" name="password"
+                                               id="exampleInputPassword" placeholder="Enter Password">
                                     </div>
+                                    <br>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                                            <input type="checkbox" name="remember" class="custom-control-input" id="customCheck">
                                             <label class="custom-control-label" for="customCheck">Remember
                                                 Me</label>
                                         </div>
                                     </div>
+                                    <br>
                                     <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
                                     <hr>
                                     <a href="https://myaccount.google.com/" class="btn btn-google btn-user btn-block">
                                         <i class="fab fa-google fa-fw"></i> Login with Google
                                     </a>
                                     <a href="https://facebook.com" class="btn btn-instagram btn-user btn-block">
-                                        <i class="fab fa-instagram-f fa-fw"></i> Login with facebook
+                                        <i class="fab fa-facebook fa-fw"></i> Login with facebook
                                     </a>
                                 </form>
                                 <hr>

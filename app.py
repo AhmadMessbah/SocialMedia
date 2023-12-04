@@ -1,15 +1,7 @@
-#from audioop import reverse
-
 from flask import Flask, render_template, redirect, request, session
-from controller.like_controller import LikeController
 from flask_session import Session
 
-
 from controller.profile_controller import ProfileController
-
-
-
-
 
 app = Flask(__name__, template_folder="view", static_folder="view/assets")
 app.config["SESSION_PERMANENT"] = False
@@ -19,7 +11,7 @@ Session(app)
 
 @app.route("/")
 def home():
-    return render_template("template.html")
+    return render_template("login.html")
 
 
 @app.route("/login", methods=["POST", "GET"])
@@ -31,10 +23,10 @@ def login():
         status, data = ProfileController.login(username, password)
         if status:
             session["username"] = username
-            return render_template("profile.html", profile_list=data)
+            return render_template("profile.html", profile=data)
         else:
             message = data
-    return render_template("login.html", message = message)
+    return render_template("login.html", message=message)
 
 
 @app.route("/profile", methods=["POST", "GET", "DELETE"])
@@ -68,24 +60,20 @@ def register():
     return render_template("register.html")
 
 
-# @app.route("/like",methods=["POST","GET","DELETE"])
-# def like(request ,pk):
-# object=get_object_or_404(MyModel,pk=pk)
-# if object.likes.filter(user=request.user).exists():
-#  object.likes.remove(request.user)
-# else:
-# object.likes.add(request.user)
-# object.save()
-# return render_template("like.html", like_list=LikeController.find_all()[1])
-# return redirect(reverse('my_app:object_detail',kwargs={'pk':pk}))
+@app.route("/post", methods=["POST", "GET"])
+def post():
+    if not session.get("username"):
+        return render_template("login.html")
+    if request.method == "POST":
+        pass
 
-# if not session.get("username"):
-#     return render_template("login.html")
-# return render_template("profile.html", profile_list=ProfileController.find_all()[1])
+    return render_template("post.html")
+
 
 @app.route("/forget")
 def forget():
-    return  render_template("forget-password.html")
+    return render_template("forget-password.html")
+
 
 @app.route("/logout")
 def logout():
