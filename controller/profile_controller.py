@@ -64,6 +64,7 @@ class ProfileController:
         except Exception as e:
             return False, str(e)
 
+
     @classmethod
     def login(cls, username, password):
         try:

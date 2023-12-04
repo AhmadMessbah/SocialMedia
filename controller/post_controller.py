@@ -44,6 +44,7 @@ class PostController:
         except Exception as e:
             return False, str(e)
 
+
     @classmethod
     def find_by_profile_id(cls, profile_id):
         try:

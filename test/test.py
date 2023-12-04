@@ -21,6 +21,7 @@ profile3.family = "comment2-like"
 da.save(profile3)
 print(profile3.id, profile3.name, profile3.family)
 
+
 post1 = Post("man post1 haastam")
 post1.profile_id = profile1.id
 da.save(post1)
