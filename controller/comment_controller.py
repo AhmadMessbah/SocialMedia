@@ -7,7 +7,7 @@ class CommentController:
     @classmethod
     def save(cls, post, profile):
         try:
-            person = post(None, profile, post)
+            profile = post(None, profile, post)
             da = CommentDa()
             return True, da.save(post)
         except Exception as e:
