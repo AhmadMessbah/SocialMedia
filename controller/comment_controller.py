@@ -1,6 +1,5 @@
-from model.da.comment_da import CommentDa
-from model.entity.comment import Comment
-
+from model.da import *
+from model.entity import *
 
 class CommentController:
 

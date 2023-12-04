@@ -1,6 +1,5 @@
-from model.da.like_da import LikeDa
-from model.entity.like import Like
-
+from model.da import *
+from model.entity import *
 
 class LikeController:
     @classmethod

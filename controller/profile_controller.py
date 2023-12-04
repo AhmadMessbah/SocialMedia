@@ -1,7 +1,7 @@
 from controller.exception.access_denied_error import AccessDeniedError
 from controller.exception.duplicate_username_error import DuplicateUsernameError
-from model.da.profile_da import ProfileDa
-from model.entity.profile import Profile
+from model.da import *
+from model.entity import *
 
 
 class ProfileController:
