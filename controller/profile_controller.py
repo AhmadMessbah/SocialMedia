@@ -57,6 +57,14 @@ class ProfileController:
             return False, str(e)
 
     @classmethod
+    def find_by_username(cls,username):
+        try:
+            da = ProfileDa()
+            return True, da.find_by_username(username)
+        except Exception as e:
+            return False, str(e)
+
+    @classmethod
     def login(cls, username, password):
         try:
             da = ProfileDa()

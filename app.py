@@ -43,7 +43,7 @@ def profile():
     elif request.method == "DELETE":
         ProfileController.remove(request.args.get("id"))
 
-    return render_template("profile.html", profile_list=ProfileController.find_all()[1])
+    return render_template("profile.html", profile=ProfileController.find_by_username(session.get("username"))[1])
 
 
 @app.route("/register", methods=["POST", "GET"])
