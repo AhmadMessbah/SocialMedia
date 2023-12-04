@@ -1,8 +1,5 @@
 from model.da.database import *
-from model.entity.comment import Comment
-from model.entity.like import Like
-from model.entity.post import Post
-from model.entity.profile import Profile
+from model.entity import *
 #
 da = DataBaseManager()
 
@@ -33,15 +30,17 @@ comment11.profile_id = profile3.id
 comment11.post_id = post1.id
 da.save(comment11)
 
+comment12 = Comment("man comment 2 - post1 hastam")
+comment12.profile_id = profile2.id
+comment12.post_id = post1.id
+da.save(comment12)
+
+
 like = Like()
 like.post_id = post1.id
 like.profile_id = profile3.id
 da.save(like)
 
-comment12 = Comment("man comment 2 - post1 hastam")
-comment12.profile_id = profile2.id
-comment12.post_id = post1.id
-da.save(comment12)
 
 profile = da.find_by_id(Profile, 1)
 print(profile.name, profile.family)

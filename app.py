@@ -24,14 +24,17 @@ def home():
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
+    message = ""
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
-        # if find_by_username_password(username,password):
-        # print(username,password)
-        session["username"] = username
-        return render_template("profile.html", profile_list=ProfileController.find_all()[1])
-    return render_template("login.html")
+        status, data = ProfileController.login(username, password)
+        if status:
+            session["username"] = username
+            return render_template("profile.html", profile_list=data)
+        else:
+            message = data
+    return render_template("login.html", message = message)
 
 
 @app.route("/profile", methods=["POST", "GET", "DELETE"])

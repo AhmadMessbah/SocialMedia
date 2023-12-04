@@ -1,7 +1,7 @@
 from sqlalchemy.orm import relationship
-
-from model.entity.base import Base
 from sqlalchemy import Integer, String, Column, Date, DateTime, ForeignKey
+
+from model.entity import *
 
 class Like(Base):
     __tablename__ = "like_tbl"

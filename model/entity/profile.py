@@ -2,7 +2,7 @@ import re
 from sqlalchemy import Integer, String, Boolean, Date, ForeignKey, Column
 from sqlalchemy.orm import relationship
 
-from model.entity.base import Base
+from model.entity import *
 
 class Profile(Base):
     __tablename__ = "profile_tbl"
@@ -14,3 +14,10 @@ class Profile(Base):
     password = Column(String(30))
 
     posts = relationship("Post",back_populates="profile")
+
+    def __init__(self,name,family,username,password):
+        self.name = name
+        self.family = family
+        self.username = username
+        self.password = password
+
