@@ -1,6 +1,6 @@
 from sqlalchemy.orm import relationship
 from sqlalchemy import Integer, String, Column, DateTime, ForeignKey
-
+from model.entity.base import Base
 from model.entity import *
 
 class Comment(Base):

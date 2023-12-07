@@ -14,3 +14,8 @@ class ProfileDa(DataBaseManager):
         result = self.session.query(Profile).filter(Profile.username == username).all()
         if result:
             return result[0]
+
+#a = ProfileDa()
+#b = Profile('behnam','masoumi','behnamlive','behnam123')
+#a.save(b)
+

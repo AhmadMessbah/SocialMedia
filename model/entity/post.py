@@ -1,8 +1,8 @@
-from sqlalchemy import Integer, String, Boolean, Date, ForeignKey, Column, DateTime
+# model/entity/post.py
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
-
-from model.entity import *
+from model.entity.base import Base
 
 class Post(Base):
     __tablename__ = "post_tbl"
@@ -11,14 +11,12 @@ class Post(Base):
     profile_id = Column(Integer, ForeignKey("profile_tbl.id"))
     text = Column(String(300))
     image = Column(String(300))
-    date_time = Column(DateTime)
+    date_time = Column(DateTime, default=datetime.now())
 
-    profile = relationship("Profile", back_populates="posts")
-    likes = relationship("Like", back_populates="post")
-    comments = relationship("Comment", back_populates="post")
+    likes = relationship("model.entity.like.Like", backref="post")
+    profile = relationship("model.entity.profile.Profile", back_populates="posts")
 
     def __init__(self, text, image=None):
         self.text = text
         self.image = image
-        self.date_time = datetime.now()
-
+        #self.date_time = datetime.now()

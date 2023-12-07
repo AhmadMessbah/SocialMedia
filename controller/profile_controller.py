@@ -6,7 +6,7 @@ from model.entity import *
 
 class ProfileController:
     @classmethod
-    def save(cls, name, family, username, password):
+    def save(cls,name, family, username, password):
         try:
             da = ProfileDa()
             if not da.find_by_username(username):
@@ -15,8 +15,9 @@ class ProfileController:
                 return True, profile
             else:
                 raise DuplicateUsernameError("Duplicate Username")
+
         except Exception as e:
-            return False, str(e)
+                return False, str(e)
 
     @classmethod
     def edit(cls, id, name, family, username, password):
@@ -33,9 +34,9 @@ class ProfileController:
     @classmethod
     def remove(cls, id):
         try:
-            da = ProfileDa()
-            profile = da.find_by_id(Profile, id)
-            return True, da.remove(profile)
+                da = ProfileDa()
+                profile = da.find_by_id(Profile, id)
+                return True, da.remove(profile)
         except Exception as e:
             return False, str(e)
 
