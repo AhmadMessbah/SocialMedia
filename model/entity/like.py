@@ -1,26 +1,22 @@
-# model/entity/like.py
-from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy import Column, Integer,DateTime, ForeignKey
 from sqlalchemy.orm import relationship
+from datetime import datetime
 
-from model.da.database import DataBaseManager
-from model.entity.base import Base
-from model.entity.post import Post
-from model.entity.profile import Profile
+from model.entity.base import *
 
 class Like(Base):
     __tablename__ = "like_tbl"
 
-    likeid = Column(Integer, primary_key=True,autoincrement=True,default=None)
-    post_id = Column(Integer, ForeignKey("post_tbl.postid"))
-    profile_id = Column(Integer, ForeignKey("profile_tbl.profileid"))
+    id = Column(Integer, primary_key=True,autoincrement=True,default=None)
+    profile_id = Column(Integer, ForeignKey("profile_tbl.id"))
+    post_id = Column(Integer, ForeignKey("post_tbl.id"))
+    date_time = Column(DateTime)
 
-    #post = relationship(Post, backref="likes")
-    #profile = relationship(Profile)
+    profile = relationship("Profile")
+    post = relationship("Post", back_populates="likes")
 
-    def __init__(self, profile_id, post_id):
-        self.profile_id = profile_id
-        self.post_id = post_id
+    def __init__(self, profile,post):
+        self.profile = profile
+        self.post = post
+        self.date_time = datetime.now()
 
-a = Like(1,1)
-b =  DataBaseManager()
-b.save(a)

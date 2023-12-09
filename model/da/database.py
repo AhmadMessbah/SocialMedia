@@ -1,8 +1,8 @@
 from sqlalchemy import create_engine,and_,or_, between
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy_utils import database_exists, create_database
+from sqlalchemy_utils import database_exists, create_database,drop_database
 
-from model.entity import *
+from model.entity import Base
 
 
 class DataBaseManager:
@@ -11,6 +11,11 @@ class DataBaseManager:
         self.engine = None
 
     def make_engine(self):
+        if not database_exists("mysql+pymysql://root:root123@localhost:3306/mft"):
+            create_database("mysql+pymysql://root:root123@localhost:3306/mft")
+        # else:
+        #     drop_database("mysql+pymysql://root:root123@localhost:3306/mft")
+
         if not self.engine:
             self.engine = create_engine("mysql+pymysql://root:root123@localhost:3306/mft")
             Base.metadata.create_all(self.engine)
