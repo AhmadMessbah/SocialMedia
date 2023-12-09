@@ -20,6 +20,3 @@ class Profile(Base):
         self.username = username
         self.password = password
 
-a = Profile('ff', 'rr', 'bessve', 'behnam126')
-b =  DataBaseManager()
-b.save(a)
