@@ -1,0 +1,2 @@
+class NoContentError(Exception):
+    pass

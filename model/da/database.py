@@ -13,8 +13,6 @@ class DataBaseManager:
     def make_engine(self):
         if not database_exists("mysql+pymysql://root:root123@localhost:3306/mft"):
             create_database("mysql+pymysql://root:root123@localhost:3306/mft")
-        # else:
-        #     drop_database("mysql+pymysql://root:root123@localhost:3306/mft")
 
         if not self.engine:
             self.engine = create_engine("mysql+pymysql://root:root123@localhost:3306/mft")
@@ -40,7 +38,7 @@ class DataBaseManager:
         self.make_engine()
         self.session.delete(entity)
         self.session.commit()
-        self.session.refresh(entity)
+        # self.session.refresh(entity)
         return entity
 
     def remove_by_id(self, class_name, id):

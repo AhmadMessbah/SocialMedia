@@ -44,8 +44,8 @@ Post Page
 
             {% for post in posts %}
             <tr class="row">
-                <td class="col-1">{{ post.id }}</td>
-                <td class="col-9">{{ post.text }}</td>
+                <td class="col-1">{{ post.text }}</td>
+                <td class="col-9">{{ post.comments }}</td>
                 <td class="col-2">
                     <button onclick="viewComments({{ post.id }})" class="btn btn-primary">Comments</button>
                 </td>

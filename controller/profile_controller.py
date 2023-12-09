@@ -5,7 +5,7 @@ from model.entity import *
 
 class ProfileController:
     @classmethod
-    def save(cls,name, family, username, password):
+    def save(cls, name, family, username, password):
         try:
             da = ProfileDa()
             if not da.find_by_username(username):
@@ -16,7 +16,7 @@ class ProfileController:
                 raise DuplicateUsernameError("Duplicate Username")
 
         except Exception as e:
-                return False, str(e)
+            return False, str(e)
 
     @classmethod
     def edit(cls, id, name, family, username, password):
@@ -33,12 +33,11 @@ class ProfileController:
     @classmethod
     def remove(cls, id):
         try:
-                da = ProfileDa()
-                profile = da.find_by_id(Profile, id)
-                return True, da.remove(profile)
+            da = ProfileDa()
+            profile = da.find_by_id(Profile, id)
+            return True, da.remove(profile)
         except Exception as e:
             return False, str(e)
-
 
     @classmethod
     def find_all(cls):
@@ -49,21 +48,24 @@ class ProfileController:
             return False, str(e)
 
     @classmethod
-    def find_by_id(cls,id):
+    def find_by_id(cls, id):
         try:
             da = ProfileDa()
-            return True, da.find_by_id(Profile, id)
+            profile = da.find_by_id(Profile, id)
+            if profile:
+                return True,profile
+            else:
+                raise NoContentError("There is no profile!")
         except Exception as e:
             return False, str(e)
 
     @classmethod
-    def find_by_username(cls,username):
+    def find_by_username(cls, username):
         try:
             da = ProfileDa()
             return True, da.find_by_username(username)
         except Exception as e:
             return False, str(e)
-
 
     @classmethod
     def login(cls, username, password):
@@ -76,5 +78,3 @@ class ProfileController:
                 raise AccessDeniedError("Wrong username/password")
         except Exception as e:
             return False, str(e)
-
-

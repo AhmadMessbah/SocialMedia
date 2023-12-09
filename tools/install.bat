@@ -1,3 +1,5 @@
+python -m pip install --upgrade pip
+
 pip install cryptography
 
 pip install mysql-connector-python

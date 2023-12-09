@@ -39,10 +39,11 @@ def profile():
         family = request.form.get("family")
         username = request.form.get("username")
         password = request.form.get("password")
-        ProfileController.save(name, family, username, password)
+        status, data = ProfileController.save(name, family, username, password)
     elif request.method == "DELETE":
         ProfileController.remove(request.args.get("id"))
 
+    # return data, 204
     return render_template("profile.html", profile=ProfileController.find_by_username(session.get("username"))[1])
 
 
@@ -56,6 +57,8 @@ def register():
             request.form.get("family"),
             request.form.get("email"),
             request.form.get("password"))
+        return render_template("login.html")
+
 
     return render_template("register.html")
 
