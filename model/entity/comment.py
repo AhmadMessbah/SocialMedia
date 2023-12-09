@@ -12,8 +12,8 @@ class Comment(Base):
     text = Column(String(300))
     date_time = Column(DateTime)
 
-    post = relationship("Post")
-    profile = relationship("Profile")
+    #post = relationship("Post")
+   # profile = relationship("Profile")
 
 
     def __init__(self,  text):

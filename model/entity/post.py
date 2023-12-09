@@ -1,22 +1,31 @@
-# model/entity/post.py
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from model.da.database import DataBaseManager
 from model.entity.base import Base
+from model.entity.profile import Profile
 
 class Post(Base):
     __tablename__ = "post_tbl"
 
-    id = Column(Integer, primary_key=True)
-    profile_id = Column(Integer, ForeignKey("profile_tbl.id"))
+    postid = Column(Integer, primary_key=True, autoincrement=True, default=None)
+    profileid = Column(Integer, ForeignKey('profile_tbl.profileid', ondelete='CASCADE'), nullable=False)
     text = Column(String(300))
     image = Column(String(300))
-    date_time = Column(DateTime, default=datetime.now())
 
-    likes = relationship("model.entity.like.Like", backref="post")
-    profile = relationship("model.entity.profile.Profile", back_populates="posts")
-
-    def __init__(self, text, image=None):
+    def __init__(self, profileid, text, image=None):
+        self.profileid = profileid
         self.text = text
         self.image = image
-        #self.date_time = datetime.now()
+
+
+Profile.posts = relationship("Post", back_populates="profile")
+Post.profile = relationship("Profile", back_populates="posts")
+
+
+a = Post(1, 'behnam')
+
+
+b = DataBaseManager()
+
+
+b.save(a)
