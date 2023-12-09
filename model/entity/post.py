@@ -18,8 +18,8 @@ class Post(Base):
         self.image = image
 
 
-Profile.posts = relationship("Post", back_populates="profile")
-Post.profile = relationship("Profile", back_populates="posts")
+#Profile.posts = relationship("Post", back_populates="profile")
+#Post.profile = relationship("Profile", back_populates="posts")
 
 
 a = Post(1, 'behnam')
