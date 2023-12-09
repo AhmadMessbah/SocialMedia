@@ -1,9 +1,16 @@
+from model.da import ProfileDa
 from model.da.database import *
 from model.entity import *
 
-da = DataBaseManager()
 
-# profile1 = Profile("aaa", "bbbb", "ahmad", "ahmad123")
+# profile_da = ProfileDa()
+# print(profile_da.find_by_id(Profile, 1))
+
+# da = DataBaseManager()
+
+profile1 = Profile("aaa111", "bbbb", "ahmad", "ahmad123")
+print(profile1)
+print(profile1.name)
 # da.save(profile1)
 # print(profile1.id, profile1.name, profile1.family)
 #
@@ -34,11 +41,11 @@ da = DataBaseManager()
 #         for lk in ps.likes:
 #             print("\t\tLikes : ", lk.id, lk.profile.name)
 
-username = input("Enter Username : ")
-da.make_engine()
-result = da.session.query(Profile).filter(Profile.username == username).all()
-print(result)
-
-for r in result:
-    print(r.name,r.family)
+# username = input("Enter Username : ")
+# da.make_engine()
+# result = da.session.query(Profile).filter(Profile.username == username).all()
+# print(result)
+#
+# for r in result:
+#     print(r.name,r.family)
 

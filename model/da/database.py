@@ -1,6 +1,6 @@
-from sqlalchemy import create_engine,and_,or_, between
+from sqlalchemy import create_engine, and_, or_, between
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy_utils import database_exists, create_database,drop_database
+from sqlalchemy_utils import database_exists, create_database, drop_database
 
 from model.entity import Base
 
@@ -33,7 +33,7 @@ class DataBaseManager:
         self.make_engine()
         self.session.merge(entity)
         self.session.commit()
-        self.session.refresh(entity)
+        # self.session.refresh(entity)
         return entity
 
     def remove(self, entity):

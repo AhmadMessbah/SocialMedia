@@ -7,7 +7,7 @@ class Profile(Base):
     __tablename__ = "profile_tbl"
 
     id = Column(Integer, primary_key=True)
-    name = Column(String(30))
+    _name = Column("name",String(30))
     family = Column(String(30))
     username = Column(String(30))
     password = Column(String(30))
@@ -19,4 +19,14 @@ class Profile(Base):
         self.family = family
         self.username = username
         self.password = password
+
+    @property
+    def name(self):
+        print("GETTER")
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        print("SETTER")
+        self._name = name
 

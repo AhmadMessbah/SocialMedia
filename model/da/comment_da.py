@@ -2,8 +2,6 @@ from model.da.database import *
 from model.entity import *
 
 
-
-
 class CommentDa(DataBaseManager):
     def find_by_profile_id(self, profile_id):
         self.make_engine()
@@ -18,11 +16,8 @@ class CommentDa(DataBaseManager):
         self.session.close()
         return result
 
-
-    def find_by_post_id(self,post_id):
+    def find_by_post_id(self, post_id):
         self.make_engine()
         result = self.session.query(Comment).filter(Comment.post.id == post_id)
         self.session.close()
         return result
-
-
