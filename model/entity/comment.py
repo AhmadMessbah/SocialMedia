@@ -1,26 +1,28 @@
 from sqlalchemy.orm import relationship
 from sqlalchemy import Integer, String, Column, DateTime, ForeignKey
+
+from model.da.database import DataBaseManager
 from model.entity.base import Base
 from model.entity import *
 
 class Comment(Base):
     __tablename__ = "comment_tbl"
 
-    id = Column(Integer, primary_key=True)
-    post_id = Column(Integer, ForeignKey("post_tbl.id"))
-    profile_id = Column(Integer, ForeignKey("profile_tbl.id"))
+    commentid = Column(Integer, primary_key=True, autoincrement=True, default=None)
+    profileid = Column(Integer, ForeignKey('profile_tbl.profileid', ondelete='CASCADE'), nullable=False)
+    post_idd = Column(Integer, ForeignKey("post_tbl.postid"))
     text = Column(String(300))
-    date_time = Column(DateTime)
+    #date_time = Column(DateTime)
 
-    #post = relationship("Post")
-   # profile = relationship("Profile")
-
-
-    def __init__(self,  text):
+    def __init__(self, profileid , post_idd, text):
+        self. profileid =  profileid
+        self.post_idd = post_idd
         self.text = text
-        # self.date_time = date_time
-    def __repr__(self):
-        return str(self.__dict__)
 
-    def to_tuple(self):
-        return tuple(self.__dict__.values())
+a = Comment(1,1,'salam khubi')
+b =  DataBaseManager()
+b.save(a)
+
+
+
+
