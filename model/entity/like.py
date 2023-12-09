@@ -10,16 +10,16 @@ from model.entity.profile import Profile
 class Like(Base):
     __tablename__ = "like_tbl"
 
-    id = Column(Integer, primary_key=True,autoincrement=True,default=None)
+    likeid = Column(Integer, primary_key=True,autoincrement=True,default=None)
     post_id = Column(Integer, ForeignKey("post_tbl.postid"))
     profile_id = Column(Integer, ForeignKey("profile_tbl.profileid"))
 
     #post = relationship(Post, backref="likes")
     #profile = relationship(Profile)
 
-    def __init__(self, post, profile):
-        self.post = post
-        self.profile = profile
+    def __init__(self, profile_id, post_id):
+        self.profile_id = profile_id
+        self.post_id = post_id
 
 a = Like(1,1)
 b =  DataBaseManager()
