@@ -8,5 +8,4 @@ Requirements:
 
     2- Create user root/root123 in Mysql8
 
-    3- test
 
